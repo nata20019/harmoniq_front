@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/harmoniq_front/static/css/main.7acaea2f.css",
+    "main.js": "/harmoniq_front/static/js/main.57d05d67.js",
+    "index.html": "/harmoniq_front/index.html",
+    "main.7acaea2f.css.map": "/harmoniq_front/static/css/main.7acaea2f.css.map",
+    "main.57d05d67.js.map": "/harmoniq_front/static/js/main.57d05d67.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.57d05d67.js"
+  ]
+}
