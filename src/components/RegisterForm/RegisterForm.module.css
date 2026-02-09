@@ -1,0 +1,152 @@
+.formWrapper {
+  background-color: #e0eadd; /* Light greenish grey background from design */
+  border-radius: 30px;
+  padding: 48px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #374f42; /* Green Darker */
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #649179;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374f42;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #374f42;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* Важливо для padding */
+}
+
+.input:focus {
+  border-color: #649179;
+}
+
+.inputError {
+  border-color: #e74c3c;
+}
+
+.errorMessage {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Password wrapper for eye icon */
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #649179;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Submit Button */
+.submitBtn {
+  background-color: #649179; /* Main Green */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #374f42;
+}
+
+/* Footer Link */
+.footerLink {
+  text-align: center;
+  font-size: 14px;
+  color: #649179;
+  margin-top: 16px;
+}
+
+.link {
+  color: #374f42;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Progress Bar Styles */
+.progressBarContainer {
+  height: 4px;
+  width: 100%;
+  background-color: #d1d9d4;
+  border-radius: 2px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Адаптивність */
+@media (max-width: 480px) {
+  .formWrapper {
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}

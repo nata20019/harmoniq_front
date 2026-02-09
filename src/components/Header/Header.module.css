@@ -1,0 +1,140 @@
+.header {
+  background-color: var(--light-green);
+  padding: 12px 0;
+  width: 100%;
+  position: relative;
+  z-index: 101;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.burgerBtn {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--green-darker);
+  padding: 0;
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--green-darker);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  @media screen and (min-width: 768px) {
+    color: var(--green);
+  }
+}
+
+.link:last-of-type {
+  border-bottom: none;
+}
+
+.joinBtn {
+  @media screen and (min-width: 768px) {
+    background-color: var(--green);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 64px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tabletJoinBtn {
+  display: none;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 148px;
+    height: 46px;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 64px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.navJoinBtn {
+  display: block;
+  width: fit-content;
+  text-align: center;
+  background-color: var(--green);
+  color: var(--white);
+  padding: 14px;
+  border-radius: 64px;
+  font-weight: 600;
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
+}
+
+/* --- Стилізація випадаючого меню (Dropdown) --- */
+.navigation {
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    padding: 0;
+    background: none;
+    gap: 32px;
+  }
+}
+
+.navigation.isOpen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Висота хедера */
+  left: 0;
+  width: 100%;
+  background-color: var(--light-green);
+  padding: 24px;
+  gap: 20px;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}

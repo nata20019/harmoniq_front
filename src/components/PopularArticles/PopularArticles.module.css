@@ -1,0 +1,46 @@
+.section {
+  padding: 80px 0; /* Великий відступ між секціями як у Figma */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--green-darker);
+}
+
+.linkAll {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  /* Створюємо 3 рівні колонки */
+  grid-template-columns: repeat(3, 1fr);
+  /* Відступ між картками 24px згідно з Auto Layout у Figma */
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+/* Адаптація під мобільні пристрої */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

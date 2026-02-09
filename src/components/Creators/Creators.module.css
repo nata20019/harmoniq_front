@@ -1,0 +1,91 @@
+.creatorsSection {
+  padding: 80px 0;
+}
+
+.header {
+  display: column;
+  justify-content: space-between;
+  align-items: flex-end; /* Вирівнювання по нижньому краю тексту */
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--green-darker);
+  margin: 0;
+}
+
+.linkAll {
+  text-decoration: none;
+  color: var(--green);
+  font-weight: 500;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.linkAll:hover {
+  opacity: 0.7;
+}
+
+.creatorsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+}
+
+.creatorItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центруємо аватар і ім'я */
+  gap: 16px;
+}
+
+.avatarWrapper {
+  width: 100%;
+  max-width: 120px; /* Обмеження розміру аватара */
+  aspect-ratio: 1 / 1; /* Робить блок квадратним */
+  border-radius: 50%; /* Робить коло */
+  overflow: hidden;
+  border: 2px solid transparent; /* Можна змінити на #e0eadd для рамки */
+  transition: transform 0.3s ease;
+}
+
+/* Ефект збільшення при наведенні */
+.avatarWrapper:hover {
+  transform: scale(1.05);
+  border-color: var(--green);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Важливо: обрізає фото, щоб воно не сплющувалось */
+  display: block;
+}
+
+.name {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--green-darker);
+  margin: 0;
+  text-align: center;
+}

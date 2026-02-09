@@ -1,0 +1,8 @@
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7fbf8; /* Світлий фон всієї сторінки */
+  padding: 20px;
+}

@@ -1,0 +1,18 @@
+.btn {
+  font-family: var(--font-family);
+  border-radius: 30px; /* як на макеті */
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.secondary {
+  background-color: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+}
