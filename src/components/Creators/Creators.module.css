@@ -32,30 +32,33 @@
   opacity: 0.7;
 }
 
-.creatorsList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-
+/* Контейнер для списку */
+.list {
+  display: flex;
+  flex-wrap: wrap; /* Дозволяє переносити елементи на мобільних */
+  justify-content: center; /* Центрує список */
+  gap: 20px; /* Відступ між картками */
   list-style: none;
   padding: 0;
   margin: 0;
-
-  @media screen and (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-  @media screen and (min-width: 1440px) {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 24px;
-  }
 }
 
-.creatorItem {
+/* Картка автора */
+.item {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центруємо аватар і ім'я */
-  gap: 16px;
+  align-items: center;
+  width: calc((100% - 40px) / 2); /* 2 в ряд на мобільних */
+
+  /* Планшет: 3 в ряд */
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 60px) / 3);
+  }
+
+  /* Десктоп: всі 6 в один ряд */
+  @media screen and (min-width: 1440px) {
+    width: calc((100% - 100px) / 6);
+  }
 }
 
 .avatarWrapper {
