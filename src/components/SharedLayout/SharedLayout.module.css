@@ -1,0 +1,9 @@
+.appWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Займає всю висоту екрана */
+}
+
+.mainContent {
+  flex: 1 0 auto; /* Змушує контент розтягуватися, виштовхуючи футер вниз */
+}

@@ -3,9 +3,7 @@ import axios from 'axios';
 import Hero from '../../components/Hero/Hero.jsx';
 import AboutUs from '../../components/AboutUs/AboutUs.jsx';
 import Creators from '../../components/Creators/Creators.jsx';
-import Footer from '../../components/Footer/Footer.jsx';
-import PopularArticles from '../../components/PopularArticles/PopularArticles.jsx';
-import Header from 'components/Header/Header.jsx';
+// import PopularArticles from '../../components/PopularArticles/PopularArticles.jsx';
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
@@ -25,12 +23,10 @@ const HomePage = () => {
 
   return (
     <>
-      <Header />
       <Hero />
       <AboutUs />
       {/* <PopularArticles articles={articles} /> */}
       <Creators />
-      <Footer />
     </>
   );
 };

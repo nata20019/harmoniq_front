@@ -23,13 +23,17 @@
 body {
   font-size: 16px;
   font-family: 'Manrope', 'DM Sans', 'Noto Sans', sans-serif;
+  background-color: var(--white);
+  color: var(--green-darker);
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 h1,
 h2,
@@ -42,6 +46,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* Стиль 'display' з Figma (для заголовків) */
@@ -63,6 +68,7 @@ p,
   font-weight: 400; /* Regular */
   line-height: 1.5;
   color: var(--gray); /* Або --black, залежно від макету */
+  box-sizing: border-box;
 }
 
 /* Навігація часто використовує DM Sans або Manrope Medium */

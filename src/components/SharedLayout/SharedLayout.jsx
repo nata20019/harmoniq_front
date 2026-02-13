@@ -1,16 +1,17 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../Header/Header.jsx';
-// import Footer from '../Footer/Footer'; // Розкоментуйте, якщо файл Footer.jsx готовий
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+import css from './SharedLayout.module.css';
 
 const SharedLayout = () => {
   return (
-    <div>
-      {/* <Header /> */}
-      <main>
+    <div className={css.appWrapper}>
+      <Header />
+      <main className={css.mainContent}>
         {/* Outlet — це те, що дозволяє відображати HomePage або ArticlesPage всередині Layout */}
         <Outlet />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
