@@ -3,7 +3,7 @@ import axios from 'axios';
 import Hero from '../../components/Hero/Hero.jsx';
 import AboutUs from '../../components/AboutUs/AboutUs.jsx';
 import Creators from '../../components/Creators/Creators.jsx';
-// import PopularArticles from '../../components/PopularArticles/PopularArticles.jsx';
+import PopularArticles from '../../components/PopularArticles/PopularArticles.jsx';
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
@@ -11,8 +11,10 @@ const HomePage = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/articles');
-        setArticles(response.data);
+        const response = await axios.get('http://localhost:5000/api/articles');
+        console.log('Fetched articles:', response.data); // Додайте цей рядок для перевірки даних
+        setArticles(response.data.data.articles);
+      
       } catch (error) {
         console.error('Error fetching articles:', error);
       }
@@ -25,7 +27,7 @@ const HomePage = () => {
     <>
       <Hero />
       <AboutUs />
-      {/* <PopularArticles articles={articles} /> */}
+      <PopularArticles articles={articles} />
       <Creators />
     </>
   );

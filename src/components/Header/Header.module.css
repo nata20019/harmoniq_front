@@ -2,14 +2,20 @@
   background-color: var(--light-green);
   padding: 12px 0;
   width: 100%;
-  position: relative;
-  z-index: 101;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .headerContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 74px;
+  @media screen and (min-width: 1440px) {
+    padding: 14px 108px;
+  }
 }
 
 .logo {
@@ -54,6 +60,9 @@
 
 .joinBtn {
   @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--green);
     color: var(--white);
     padding: 10px 24px;
@@ -117,6 +126,8 @@
   display: none;
   @media screen and (min-width: 1440px) {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: static;
     flex-direction: row;
     padding: 0;
