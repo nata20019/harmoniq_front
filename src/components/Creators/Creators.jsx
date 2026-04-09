@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Container from '../Container/Container';
 import css from './Creators.module.css';
 import { getCreators } from '../../lib/api/api';
@@ -9,8 +10,10 @@ const Creators = () => {
   useEffect(() => {
     const fetchCreators = async () => {
       try {
-        const data = await getCreators();
-        setCreators(data.slice(0, 6));
+        const response = await getCreators();
+        // Витягуємо масив саме з тієї структури, яку дає бекенд
+        const usersArray = response.data.users;
+        setCreators(usersArray.slice(0, 6));
       } catch (error) {
         console.error('Помилка при завантаженні авторів:', error);
       }
@@ -26,13 +29,13 @@ const Creators = () => {
       <Container>
         <div className={css.header}>
           <h2 className={css.title}>Top Creators</h2>
-          <a href="/creators" className={css.allLink}>
+          <Link to="/creators" className={css.linkAll}>
             Go to all Creators ↗
-          </a>
+          </Link>
         </div>
 
         <ul className={css.list}>
-          {creators.map(({ _id, name, avatarURL }) => (
+          {creators.map(({ _id, username, avatarURL }) => (
             <li key={_id} className={css.item}>
               <div className={css.avatarWrapper}>
                 <img
@@ -41,14 +44,14 @@ const Creators = () => {
                       ? avatarURL
                       : `${BASE_URL}${avatarURL.replace(/\\/g, '/').replace('public/', '')}`
                   }
-                  alt={name}
+                  alt={username}
                   className={css.avatar}
                   onError={e => {
                     e.target.src = 'https://via.placeholder.com/150'; // Заглушка, якщо фото не знайдено
                   }}
                 />
               </div>
-              <p className={css.name}>{name}</p>
+              <p className={css.username}>{username}</p>
             </li>
           ))}
         </ul>

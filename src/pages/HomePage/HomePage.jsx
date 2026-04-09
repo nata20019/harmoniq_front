@@ -12,9 +12,8 @@ const HomePage = () => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/articles');
-        console.log('Fetched articles:', response.data); // Додайте цей рядок для перевірки даних
+        console.log('Fetched articles:', response.data);
         setArticles(response.data.data.articles);
-      
       } catch (error) {
         console.error('Error fetching articles:', error);
       }

@@ -1,0 +1,56 @@
+.page {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatarWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background-color: #f0f0f0; /* Заглушка, поки фото завантажується */
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #1a1a1a;
+  margin: 0;
+}

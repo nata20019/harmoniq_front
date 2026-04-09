@@ -12,23 +12,16 @@
 
 .list {
   display: grid;
-  /* Робимо 3 колонки для великих екранів */
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 24px;
   list-style: none;
   padding: 0;
-}
 
-/* Адаптивність для планшетів */
-@media (max-width: 1024px) {
-  .list {
+  @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-/* Адаптивність для мобільних */
-@media (max-width: 768px) {
-  .list {
-    grid-template-columns: 1fr;
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -24,23 +24,24 @@
 
 .grid {
   display: grid;
-  /* Створюємо 3 рівні колонки */
-  grid-template-columns: repeat(3, 1fr);
-  /* Відступ між картками 24px згідно з Auto Layout у Figma */
+  grid-template-columns: repeat(1, 1fr);
   gap: 24px;
   list-style: none;
   padding: 0;
-}
 
-/* Адаптація під мобільні пристрої */
-@media (max-width: 1024px) {
-  .grid {
+  @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.loading {
+  padding: 100px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: var(--green-darker);
+  text-align: center;
 }

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import toast from 'react-hot-toast'; // Для пуш-повідомлень про помилки
+import {login} from '../../redux/auth/operations.js';
 import css from './LoginForm.module.css';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -22,11 +25,13 @@ const LoginForm = () => {
     try {
       // Тут логіка запиту на бекенд
       console.log('Logging in with:', values);
-
-      // Імітація успішного логіну
+// викликаємо реальний dispatch
+      await dispatch(login(values)).unwrap();
+    
       // Після успіху — автоматична авторизація та редирект на HomeAuthorised
       toast.success('Welcome back!');
-      navigate('/home-authorised');
+      // navigate('/home-authorised');
+      navigate('/'); // Краще редиректити на головну, а не на окрему "authorised"
     } catch (error) {
       // Обробка помилок бекенду у вигляді пуш-повідомлення
       toast.error(

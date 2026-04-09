@@ -1,30 +1,39 @@
-.header {
-  background-color: var(--light-green);
-  padding: 12px 0;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
-
-.headerContent {
+.authNav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 74px;
-  @media screen and (min-width: 1440px) {
-    padding: 14px 108px;
-  }
+  gap: 25px; /* Відступ між посиланнями */
+  padding: 10px 20px;
 }
 
-.logo {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.02em;
-  color: var(--green);
+/* Загальні стилі для всіх посилань */
+.authNav a {
   text-decoration: none;
+  color: #4a5550; /* Темно-сірий з відтінком зеленого */
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.authNav a:hover {
+  color: #2d3632;
+}
+
+/* Стиль для активного посилання (підкреслення, як на скриншоті) */
+.authNav a:global(.active) {
+  color: #2d3632;
+}
+
+/* Якщо це звичайне посилання, додаємо підкреслення тільки для активного, 
+   але НЕ для кнопки "Join now" */
+.authNav a:global(.active):not(.joinBtn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #2d3632;
 }
 
 .burgerBtn {
@@ -38,9 +47,9 @@
     display: none;
   }
 }
-
+/* Стиль для кнопки Log in (якщо треба виділити окремо) */
 .link {
-  font-family: var(--font-family);
+    font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   color: var(--green-darker);
@@ -58,6 +67,7 @@
   border-bottom: none;
 }
 
+/* Кнопка "Join now" */
 .joinBtn {
   @media screen and (min-width: 768px) {
     display: flex;

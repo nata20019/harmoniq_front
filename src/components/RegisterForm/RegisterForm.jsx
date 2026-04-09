@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link, useNavigate } from 'react-router-dom'; // Для навігації
+import { Link, useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi'; // Іконки
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations.js';
+import { toast } from 'react-hot-toast';
 import css from './RegisterForm.module.css';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const dispatch = useDispatch();
 
   // Схема валідації згідно з ТЗ
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .min(2, 'Name must be at least 2 characters')
-      .required('Name is required'),
+    username: Yup.string()
+      .min(2, 'Username must be at least 2 characters')
+      .required('Username is required'),
     email: Yup.string()
       .email('Invalid email address')
       .required('Email is required'),
@@ -30,20 +34,34 @@ const RegisterForm = () => {
   });
 
   const initialValues = {
-    name: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: '',
   };
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log('Form values:', values);
-    // Тут має бути запит на бекенд.
-    // Якщо успішно -> перенаправляємо на сторінку додавання фото
-    setTimeout(() => {
+  const handleSubmit = async (values, { setSubmitting, setErrors }) => {
+    const payload = {
+      username: values.username,
+      email: values.email,
+      password: values.password,
+    };
+
+    try {
+      // Викликаємо реєстрацію та чекаємо результат
+      const resultAction = await dispatch(register(payload));
+
+      if (register.fulfilled.match(resultAction)) {
+        toast.success('Registration successful!');
+        navigate('/upload-photo');
+      } else {
+        toast.error(resultAction.payload || 'Something went wrong');
+      }
+    } catch (error) {
+      toast.error('Connection error');
+    } finally {
       setSubmitting(false);
-      navigate('/upload-photo'); // Приклад перенаправлення
-    }, 1000);
+    }
   };
 
   return (
@@ -69,21 +87,21 @@ const RegisterForm = () => {
 
           return (
             <Form className={css.form}>
-              {/* Name Field */}
+              {/* Username Field */}
               <div className={css.fieldGroup}>
-                <label htmlFor="name" className={css.label}>
-                  Enter your name
+                <label htmlFor="username" className={css.label}>
+                  Enter your username
                 </label>
                 <Field
                   type="text"
-                  name="name"
+                  name="username"
                   placeholder="Max"
                   className={`${css.input} ${
-                    errors.name && touched.name ? css.inputError : ''
+                    errors.username && touched.username ? css.inputError : ''
                   }`}
                 />
                 <ErrorMessage
-                  name="name"
+                  name="username"
                   component="div"
                   className={css.errorMessage}
                 />

@@ -71,3 +71,43 @@
   font-weight: 500;
   color: #649179;
 }
+
+/* ArticlesPage.module.css */
+.section {
+  padding: 80px 0;
+  background-color: #f9fbfb; /* Світлий фон сторінки */
+  min-height: 100vh;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(350px, 1fr)
+  ); /* Авто-заповнення */
+  gap: 32px;
+}
+
+/* Стилі для ArticleCard.module.css */
+.card {
+  background: #eff4f1; /* Той самий var(--light-green) */
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}

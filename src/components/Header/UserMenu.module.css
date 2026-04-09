@@ -1,0 +1,72 @@
+.userWrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Відступ між навігацією, кнопкою та профілем */
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Кнопка "Create an article" */
+.createBtn {
+  background-color: #649179; /* Зелений колір з макету */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px; /* Овальна форма */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.createBtn:hover {
+  background-color: #4a6d5a;
+}
+
+/* Блок профілю (Аватар + Ім'я) */
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 20px;
+  border-left: 1px solid #ccc; /* Розділювач як у макеті */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Круглий аватар */
+  object-fit: cover;
+  background-color: #ddd;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #649179; /* Твій основний зелений */
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.logoutBtn:hover {
+  color: #4a6d5a; /* Трохи темніший при наведенні */
+}
