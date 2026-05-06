@@ -24,7 +24,7 @@ const ProfilePage = () => {
   
 console.log("Дані у ProfilePage:", myArticles); // Що тут пише в консолі браузера?
  console.log("ID поточної Debby:", user?._id);
-console.log("Власник першої статті:", myArticles[0]?.owner);
+console.log("Власник першої статті:", myArticles.length > 0 ? myArticles[0].owner?.username : "ще немає даних");
  
 return (
     <div className={css.container}>

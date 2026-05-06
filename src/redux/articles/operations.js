@@ -9,26 +9,6 @@ const API_URL = 'http://localhost:5000/api';
 export const fetchArticles = createAsyncThunk(
   'articles/fetchAll',
   async (_, thunkAPI) => {
-//     useEffect(() => {
-//       const user = thunkAPI.getState().auth.user; // Дістаємо користувача зі стейту
-//   const fetchArticles = async () => {
-//     const token = user?.token; // Переконайтеся, що ви отримуєте токен
-//     if (!token) return;
- 
-//     try {
-//       const response = await axios.get(`${API_URL}/articles/my`, {
-//         headers: {
-//           Authorization: `Bearer ${token}`
-//         }
-//       });
-//       console.log("Статті:", response.data);
-//     } catch (error) {
-//       console.error("Помилка:", error);
-//     }
-//   };
- 
-//   fetchArticles();
-// }, []);
 
     try {
       const response = await axios.get(`${API_URL}/articles`);
