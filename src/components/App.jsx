@@ -10,7 +10,8 @@ import ArticlesPage from '../pages/ArticlesPage/ArticlesPage.jsx';
 import RegisterPage from '../pages/RegisterPage/RegisterPage.jsx';
 import LoginPage from '../pages/LoginPage/LoginPage.jsx';
 import CreatorsPage from '../pages/CreatorsPage/CreatorsPage.jsx';
-// import { PrivateRoute } from './PrivateRoute.jsx';
+import { PrivateRoute } from './PrivateRoute.jsx';
+import ProfilePage from '../pages/ProfilePage/ProfilePage.jsx';
 import { RestrictedRoute } from './RestrictedRoute.jsx';
 
 export const App = () => {
@@ -40,12 +41,12 @@ export const App = () => {
           {/* Сторінка-заглушка для неіснуючих шляхів */}
           <Route path="*" element={<HomePage />} />
           {/* ЗАХИЩЕНИЙ МАРШРУТ */}
-          {/* <Route
-            path="/`
+          <Route
+            path="/profile"
             element={
-              <PrivateRoute component={<HomePage />} redirectTo="/login" />
+              <PrivateRoute component={<ProfilePage />} redirectTo="/login" />
             }
-          /> */}
+          />
         </Route>
       </Routes>
     </>

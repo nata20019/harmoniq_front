@@ -13,7 +13,7 @@ const HomePage = () => {
       try {
         const response = await axios.get('http://localhost:5000/api/articles');
         console.log('Fetched articles:', response.data);
-        setArticles(response.data.data.articles);
+        setArticles(response.data.data.articles || response.data.data); // Враховуємо можливість, що data може бути undefined
       } catch (error) {
         console.error('Error fetching articles:', error);
       }

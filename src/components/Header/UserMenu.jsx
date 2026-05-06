@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/operations.js';
-import { selectUser } from '../../redux/auth/selectors.js';
+import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors.js';
 import css from './UserMenu.module.css';
 import { NavLink } from 'react-router-dom';
 
@@ -8,12 +8,14 @@ const BASE_URL = 'http://localhost:5000/';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const user = useSelector(selectUser) || {};
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  // const handleLogout = () => {
-  //   console.log('Logout button clicked!');
-  //   dispatch(logout());
-  // };
+  if (!isLoggedIn && !user.email && !user.username) return null;
+
+  const avatarSrc = user?.avatarURL?.startsWith('http') 
+    ? user.avatarURL 
+    : `${BASE_URL}${user.avatarURL}`;
 
   return (
     <div className={css.userWrapper}>
@@ -29,11 +31,11 @@ export const UserMenu = () => {
       <div className={css.profileInfo}>
         <img
        
-          src={user.avatarURL ? `${BASE_URL}${user.avatarURL}` : 'default-avatar.png'} 
-  alt={user.username}
+          src={user?.avatarURL ? avatarSrc : 'default-avatar.png'} 
+  alt={user?.username ? `${user.username}'s avatar` : 'Default avatar'}
           className={css.avatar}
         />
-        <span className={css.username}>{user?.username || 'Guest'}</span>
+        <span className={css.username}>{user?.username || 'User'}</span>
       </div>
 
       <button

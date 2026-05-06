@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../../redux/articles/slice.js';
+import { fetchArticles, fetchMyArticles } from '../../redux/articles/operations.js';  
 import {
   selectArticles,
   selectIsLoading,
 } from '../../redux/articles/selectors.js';
 import ArticleCard from '../../components/ArticleCard/ArticleCard.jsx';
 import css from './ArticlesPage.module.css';
-import Container from 'components/Container/Container.jsx';
+import Container from './../../components/Container/Container.jsx';
 
 const ArticlesPage = () => {
   const dispatch = useDispatch();

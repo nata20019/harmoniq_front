@@ -19,7 +19,12 @@ const authSlice = createSlice({
       })
       // Логін
       .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = {
+    _id: action.payload.user._id || action.payload.user.id, // ПЕРЕВІР: чи приходить _id від сервера?
+    email: action.payload.user.email,
+    username: action.payload.user.username,
+    avatarURL: action.payload.user.avatarURL,
+  };
         state.token = action.payload.token;
         state.isLoggedIn = true;
         console.log('User logged in:', action.payload.user);
@@ -43,7 +48,8 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload; // Дані з /auth/current
+        state.user = action.payload.user; // Дані з /auth/current
+        state.token = action.payload.token; // Токен з /auth/current
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

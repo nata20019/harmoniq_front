@@ -6,7 +6,7 @@ import {
   selectArticles,
   selectIsLoading,
 } from '../../redux/articles/selectors.js';
-import { fetchArticles } from '../../redux/articles/slice.js';
+import { fetchArticles } from '../../redux/articles/operations.js';
 import { useEffect } from 'react';
 import css from './PopularArticles.module.css';
 

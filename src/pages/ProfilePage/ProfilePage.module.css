@@ -1,0 +1,106 @@
+.profileHeader {
+  background-color: #1c1c1c;
+  border-radius: 24px;
+  padding: 32px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.mainInfo {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.userText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.userName {
+  font-size: 24px;
+  margin: 0;
+}
+
+.userEmail {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.statsBar {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f6c744;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Статті */
+.articlesSection {
+  width: 100%;
+  max-width: 800px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.articlesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.articleCard {
+  background: #1c1c1c;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.articleImagePlaceholder {
+  height: 180px;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.articleContent {
+  padding: 15px;
+}
+
+.articleCategory {
+  color: #f6c744;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.articleTitle {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.articleDate {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}

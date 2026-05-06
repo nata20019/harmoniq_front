@@ -46,9 +46,7 @@ const Creators = () => {
                   }
                   alt={username}
                   className={css.avatar}
-                  onError={e => {
-                    e.target.src = 'https://via.placeholder.com/150'; // Заглушка, якщо фото не знайдено
-                  }}
+               
                 />
               </div>
               <p className={css.username}>{username}</p>
