@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout, refreshUser } from './operations';
+import { register, login, logout, refreshUser, updateAvatar } from './operations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -48,14 +48,20 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload.user; // Дані з /auth/current
-        state.token = action.payload.token; // Токен з /auth/current
+        state.user = action.payload;
+        // state.token = action.payload.token; // Токен з /auth/current
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
-        state.token = null; // Токен невалідний — видаляємо
+        state.isLoggedIn = false;
+        state.token = null; 
+        state.user = { username: null, email: null, avatarURL: null }; // Очищаємо дані користувача
+      })
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+        // Записуємо нову адресу аватара, яку повернув сервер
+        state.user.avatarURL = action.payload.avatarURL; 
       });
   },
 });

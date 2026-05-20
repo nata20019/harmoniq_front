@@ -3,77 +3,48 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchMyArticles } from '../../redux/articles/operations.js';
 import { selectMyArticles } from '../../redux/articles/selectors.js';
-import { selectUser } from '../../redux/auth/selectors';
+// import { selectUser } from '../../redux/auth/selectors';
+import ArticleCard from '../../components/ArticleCard/ArticleCard.jsx';
 import css from './ProfilePage.module.css';
+import ProfileHeader from '../../components/ProfileHeader/ProfileHeader.jsx';
+import Container from '../../components/Container/Container.jsx';
+import { NavLink } from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:5000/';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
   const myArticles = useSelector(selectMyArticles) || []; // Беремо реальні статті
 
   useEffect(() => {
     dispatch(fetchMyArticles()); // Завантажуємо при заході на сторінку
   }, [dispatch]);
 
-  const avatarSrc = user?.avatarURL?.startsWith('http') 
-    ? user.avatarURL 
-    : `${BASE_URL}${user?.avatarURL}`;
 
   
 console.log("Дані у ProfilePage:", myArticles); // Що тут пише в консолі браузера?
- console.log("ID поточної Debby:", user?._id);
-console.log("Власник першої статті:", myArticles.length > 0 ? myArticles[0].owner?.username : "ще немає даних");
+// console.log("Власник першої статті:", myArticles.length > 0 ? myArticles[0].owner?.username : "ще немає даних");
  
 return (
+  <Container>
     <div className={css.container}>
-      <h1 className={css.title}>My Profile</h1>
-      
-      <div className={css.profileHeader}>
-        <div className={css.mainInfo}>
-          <div className={css.avatarWrapper}>
-            <img src={user?.avatarURL ? avatarSrc : '/default-avatar.png'} alt="Avatar" className={css.largeAvatar} />
-            <button className={css.editIconBtn}>✎</button>
-          </div>
-          
-          <div className={css.userText}>
-            <h2 className={css.userName}>{user?.username || 'Debby'}</h2>
-            <p className={css.userEmail}>{user?.email}</p>
-            <button className={css.editBtn}>Edit Profile</button>
-          </div>
-        </div>
-
-        {/* Статистика як у Figma */}
-        <div className={css.statsBar}>
-          <div className={css.statItem}>
-            <span className={css.statNumber}>{myArticles.length}</span>
-            <span className={css.statLabel}>Articles</span>
-          </div>
-          <div className={css.statItem}>
-            <span className={css.statNumber}>0</span>
-            <span className={css.statLabel}>Followers</span>
-          </div>
-          <div className={css.statItem}>
-            <span className={css.statNumber}>0</span>
-            <span className={css.statLabel}>Following</span>
-          </div>
-        </div>
-      </div>
-
+     <ProfileHeader /> {/* Використовуємо готовий компонент для шапки профілю */}
       {/* Секція зі статтями */}
       <div className={css.articlesSection}>
-        <h3 className={css.sectionTitle}>My Articles</h3>
-        <div className={css.articlesGrid}>
-          {Array.isArray(myArticles) && myArticles.length > 0 ? (
-            myArticles.map(({ _id, title, category, createdAt }) => (
-              <div key={_id} className={css.articleCard}>
-                 {/* Тут твоя картка статті */}
-                 <h4>{title}</h4>
-                  <p>{category}</p>
-                 <p>{new Date(createdAt).toLocaleDateString()}</p>
-              </div>
-            ))
+        <div className={css.tabs}>
+        <NavLink to="/profile/articles" className={css.link}>
+          My Articles
+        </NavLink>
+
+        <NavLink to="/profile/saved" className={css.link}>
+          Saved Articles
+        </NavLink>
+      </div>
+
+      <div className={css.articlesGrid}>
+        {myArticles.length > 0 ? (
+          myArticles.map(article => (
+            <ArticleCard key={article._id} article={article} />
+          ))
           ) : (
             <p>You haven't written any articles yet.</p>
           )}
@@ -81,6 +52,7 @@ return (
         </div>
       </div>
     </div>
+  </Container>
   );
 };
 export default ProfilePage;

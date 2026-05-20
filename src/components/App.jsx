@@ -12,6 +12,7 @@ import LoginPage from '../pages/LoginPage/LoginPage.jsx';
 import CreatorsPage from '../pages/CreatorsPage/CreatorsPage.jsx';
 import { PrivateRoute } from './PrivateRoute.jsx';
 import ProfilePage from '../pages/ProfilePage/ProfilePage.jsx';
+import CreateArticleForm from './CreateArticleForm/CreateArticleForm.jsx';  
 import { RestrictedRoute } from './RestrictedRoute.jsx';
 
 export const App = () => {
@@ -47,6 +48,9 @@ export const App = () => {
               <PrivateRoute component={<ProfilePage />} redirectTo="/login" />
             }
           />
+
+  <Route path="/create-article" element={<CreateArticleForm />} />
+
         </Route>
       </Routes>
     </>

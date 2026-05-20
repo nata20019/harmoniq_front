@@ -31,7 +31,6 @@ export const register = createAsyncThunk(
   }
 );
 
-// 2. Додаємо logout
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
@@ -93,10 +92,26 @@ export const updateUserInfo = createAsyncThunk(
   "auth/update",
   async (formData, thunkAPI) => {
     try {
-      const res = await axios.patch("/api/auth/update", formData, {
+      const res = await axios.patch("/auth/update", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateAvatar = createAsyncThunk(
+  'auth/updateAvatar',
+  async (formData, thunkAPI) => {
+    try {
+      const res = await axios.patch('/users/avatars', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // КРИТИЧНО для завантаження файлів
+        },
+      });
+      return res.data; // Бекенд має повернути об'єкт з новим { avatarURL: "..." }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

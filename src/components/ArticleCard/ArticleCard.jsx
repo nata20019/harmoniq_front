@@ -21,7 +21,7 @@ const ArticleCard = ({ article }) => {
       ? owner.avatarURL
       : `http://localhost:5000/${owner.avatarURL.replace(/\\/g, '/')}`;
   }
-
+// console.log("Дані власника статті:", owner);
   return (
     <li className={css.card}>
       <div className={css.imageWrapper}>

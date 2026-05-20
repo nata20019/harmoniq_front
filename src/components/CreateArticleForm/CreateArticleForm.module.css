@@ -1,0 +1,75 @@
+.pageWrapper {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.form {
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.pageTitle {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+.flexContainer {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.uploadArea {
+  width: 150px;
+  height: 150px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.inputGroup {
+  flex: 1;
+}
+
+.inputGroup input, .textAreaGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.textAreaGroup textarea {
+  height: 300px;
+  resize: none;
+}
+
+.publishBtn {
+  display: block;
+  margin: 30px auto 0;
+  background-color: #2e4d41;
+  color: white;
+  padding: 12px 40px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.publishBtn:hover {
+  opacity: 0.9;
+}

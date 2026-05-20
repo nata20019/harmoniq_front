@@ -1,6 +1,5 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { useEffect } from "react";
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const API_URL = 'http://localhost:5000/api';
 
@@ -40,12 +39,34 @@ export const fetchMyArticles = createAsyncThunk(
         }
       });
 
-      // ЛОГ ДЛЯ ПЕРЕВІРКИ: подивись у консоль браузера, що тут виведе
-      console.log("РЕАЛЬНІ ДАНІ З БЕКЕНДУ:", response.data);
+      // console.log("РЕАЛЬНІ ДАНІ З БЕКЕНДУ:", response.data);
 
       return response.data.data.result || response.data.data.articles; // Припускаємо, що бекенд повертає { data: { articles: [...] } }
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const createArticle = createAsyncThunk(
+  "articles/createArticle",
+  async (formData, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+console.log("Відправляю статтю з токеном:", token);
+      const { data } = await axios.post(`${API_URL}/articles`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          // 'Content-Type': 'multipart/form-data' - axios додасть це автоматично для FormData
+        },
+      });
+
+      // Зверни увагу: твій бекенд повертає об'єкт { data: { newArticle } }
+      return data.data.newArticle; 
+    } catch (error) {
+      console.error("Помилка запиту:", error.response?.data || error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

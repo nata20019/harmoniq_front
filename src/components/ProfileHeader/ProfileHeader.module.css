@@ -1,0 +1,66 @@
+.headerCard {
+
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden; /* Щоб декоративне коло не вилізало */
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.userInfo {
+  display: flex;
+  gap: 30px;
+  z-index: 1; /* Поверх декорацій */
+}
+
+.avatarWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userName {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.userEmail {
+  font-size: 16px;
+  color: #aaaaaa;
+  margin-bottom: 24px;
+}
+
+.stats {
+  display: flex;
+  gap: 40px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #888888;
+}
+

@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { logout } from '../../redux/auth/operations.js';
 import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors.js';
 import css from './UserMenu.module.css';
@@ -10,6 +11,7 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser) || {};
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const navigate = useNavigate();
 
   if (!isLoggedIn && !user.email && !user.username) return null;
 
@@ -24,10 +26,11 @@ export const UserMenu = () => {
         <NavLink to="/articles">Articles</NavLink>
         <NavLink to="/creators">Creators</NavLink>
         <NavLink to="/profile">My Profile</NavLink>
-      </nav>
-
-      <button className={css.createBtn}>Create an article</button>
-
+     
+      <NavLink to="/create-article" className={css.createBtn}>
+  Create an article
+</NavLink>
+ </nav>
       <div className={css.profileInfo}>
         <img
        

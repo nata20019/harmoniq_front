@@ -1,16 +1,3 @@
-// import css from './Button.module.css';
-
-// export default function Button({
-//   children,
-//   type = 'button',
-//   variant = 'primary',
-// }) {
-//   return (
-//     <button type={type} className={`${css.btn} ${css[variant]}`}>
-//       {children}
-//     </button>
-//   );
-// }
 import { useNavigate } from 'react-router-dom';
 import css from './Button.module.css';
 

@@ -104,3 +104,24 @@
   font-size: 13px;
   color: rgba(255, 255, 255, 0.4);
 }
+
+.link {
+    font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--green-darker);
+  text-decoration: none;
+  transition: color 0.3s;
+padding: 20px 20px;
+margin-bottom: 20px;
+}
+
+.link:hover {
+  @media screen and (min-width: 768px) {
+    color: var(--green);
+  }
+}
+
+.link:last-of-type {
+  border-bottom: none;
+}
