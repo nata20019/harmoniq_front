@@ -1,18 +1,6 @@
-import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-// Припускаємо, що у тебе є відповідні операції та селектори
-// import { fetchArticleById } from '../../redux/articles/operations';
-// import { selectCurrentArticle, selectIsLoading } from '../../redux/articles/selectors';
 import s from './ArticlePage.module.css';
 
 const ArticlePage = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  
-  // Дані статті (можна замінити на реальні селектори)
-  // const article = useSelector(selectCurrentArticle);
-  // const isLoading = useSelector(selectIsLoading);
 
   // Заглушка даних для демонстрації згідно з дизайном
   const article = {
@@ -21,11 +9,6 @@ const ArticlePage = () => {
     content: `If you are a person who remains busy in work and other matters...`,
   };
 
-  /* 
-  useEffect(() => {
-    dispatch(fetchArticleById(id));
-  }, [dispatch, id]); 
-  */
 
   if (!article) return <div className={s.loader}>Loading...</div>;
 
