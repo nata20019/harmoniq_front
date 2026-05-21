@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { logout } from '../../redux/auth/operations.js';
 import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors.js';
 import css from './UserMenu.module.css';
@@ -11,8 +10,7 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser) || {};
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const navigate = useNavigate();
-
+  
   if (!isLoggedIn && !user.email && !user.username) return null;
 
   const avatarSrc = user?.avatarURL?.startsWith('http') 

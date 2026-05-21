@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles, fetchMyArticles } from '../../redux/articles/operations.js';  
+import { fetchArticles } from '../../redux/articles/operations.js';  
 import {
   selectArticles,
   selectIsLoading,
