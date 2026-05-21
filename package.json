@@ -1,7 +1,6 @@
 {
   "name": "harmoniq-front",
   "version": "0.1.0",
-  "private": true,
   "homepage": "https://nata20019.github.io/harmoniq_front/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
