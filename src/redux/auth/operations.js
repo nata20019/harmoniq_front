@@ -2,7 +2,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'https://harmoniq-back.onrender.com/api';
 
 // Утиліта для додавання токена
 const setAuthHeader = token => {
