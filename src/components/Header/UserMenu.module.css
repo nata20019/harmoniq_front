@@ -1,71 +1,105 @@
-/* =========================================
-   USER MENU (MOBILE FIRST)
-   ========================================= */
-
-/* 1. Базові стилі для мобільних пристроїв (за замовчуванням) */
-.userWrapper {
+/* Зовнішній загальний контейнер */
+.userMenuContainer {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; /* Дозволяє елементам переноситися на вузьких екранах */
-  gap: 15px;       /* Менший відступ для телефонів */
-  padding: 10px 0;
 }
 
-/* 2. Стилі для планшетів та десктопів (від 768px і більше) */
-@media screen and (min-width: 768px) {
-  .userWrapper {
-    flex-wrap: nowrap; /* Забороняємо перенесення, все в один рядок */
-    justify-content: flex-start;
-    gap: 25px;         /* Повертаємо великий відступ */
-    padding: 10px 20px;
-  }
-}
+/* ========================================================
+   БАЗОВІ СТИЛІ ДЛЯ МОБІЛЬНИХ (Комп'ютер ігнорується)
+   ======================================================== */
 
-/* --- Кнопка "Create an article" --- */
-.createBtn {
-  background-color: var(--green, #649179); /* Використовуйте свої змінні, якщо є */
-  color: white;
+/* Кнопка Бургера */
+.burgerBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
   border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 150; /* Щоб бургер завжди був зверху */
+}
+
+.burgerLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #4a5550;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Перетворення бургера на хрестик при відкритті */
+.burgerBtnOpen .burgerLine:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.burgerBtnOpen .burgerLine:nth-child(2) { opacity: 0; }
+.burgerBtnOpen .burgerLine:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+/* Випадаюче меню на мобільному */
+.userWrapper {
+  display: none; /* За замовчуванням сховано */
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 40px; /* Відступ вниз від шапки */
+  right: -20px; /* Зсув до краю екрану */
+  width: calc(100vw - 40px); /* На всю ширину екрану мобілки */
+  max-width: 320px;
+  background-color: #e2ede5; /* Світло-зелений під колір хедера */
+  padding: 30px 20px;
+  gap: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 140;
+}
+
+/* Коли меню відкрите на телефоні */
+.userWrapper.isOpen {
+  display: flex;
+}
+
+/* Навігаційні посилання в стовпчик */
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #4a5550;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #2d3632;
+}
+
+/* Кнопка "Create an article" на мобілці */
+.createBtn {
+  background-color: #649179;
+  color: white !important; /* перебиваємо дефолтний колір посилань */
+  border: none;
+  padding: 10px 20px;
   border-radius: 30px;
   font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  
-  /* Мобільний розмір кнопки (за замовчуванням) */
-  padding: 8px 16px; 
-  font-size: 14px;
+  text-align: center;
+  width: 100%; /* На мобілці кнопка на всю ширину меню */
+  box-sizing: border-box;
 }
 
-@media screen and (min-width: 768px) {
-  .createBtn {
-    /* Десктопний розмір кнопки */
-    padding: 10px 20px; 
-    font-size: 16px;
-  }
-}
-
-.createBtn:hover {
-  background-color: var(--green-darker, #4a6d5a);
-}
-
-/* --- Блок профілю (Аватар + Ім'я) --- */
+/* Інфо профілю (Аватар + Ім'я) */
 .profileInfo {
   display: flex;
   align-items: center;
   gap: 12px;
-  
-  /* На мобільному без лінії-розділювача і лівого відступу */
-  padding-left: 0;
-  border-left: none;
-}
-
-@media screen and (min-width: 768px) {
-  .profileInfo {
-    /* Повертаємо лінію-розділювач на великих екранах */
-    padding-left: 20px;
-    border-left: 1px solid #ccc; 
-  }
 }
 
 .avatar {
@@ -79,9 +113,10 @@
 .username {
   font-weight: 600;
   font-size: 14px;
+  color: #2d3632;
 }
 
-/* --- Кнопка виходу --- */
+/* Кнопка виходу */
 .logoutBtn {
   background: none;
   border: none;
@@ -89,11 +124,59 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--green, #649179);
-  padding: 5px;
+  color: #649179;
+  padding: 8px;
   transition: color 0.3s ease;
 }
 
 .logoutBtn:hover {
-  color: var(--green-darker, #4a6d5a);
+  color: #4a6d5a;
+}
+
+
+/* ========================================================
+   СТИЛІ ДЛЯ ДЕСКТОПІВ (Екрани від 768px і більше)
+   ======================================================== */
+@media screen and (min-width: 768px) {
+  /* Ховаємо бургер повністю */
+  .burgerBtn {
+    display: none;
+  }
+
+  /* Повертаємо звичайне відображення в рядок */
+  .userWrapper {
+    display: flex !important; /* Завжди показуємо */
+    flex-direction: row;
+    position: static;
+    width: auto;
+    max-width: none;
+    background: none;
+    padding: 0;
+    gap: 25px;
+    box-shadow: none;
+  }
+
+  /* Навігація стає в рядок */
+  .nav {
+    flex-direction: row;
+    gap: 16px;
+    width: auto;
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+
+  /* Кнопка набуває нормальних розмірів */
+  .createBtn {
+    width: auto;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* Додаємо розділювач ліворуч від профілю */
+  .profileInfo {
+    padding-left: 20px;
+    border-left: 1px solid #ccc;
+  }
 }
