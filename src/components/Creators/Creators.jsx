@@ -22,7 +22,7 @@ const Creators = () => {
     fetchCreators();
   }, []);
 
-  const BASE_URL = 'http://localhost:5000/';
+ const BASE_URL = 'https://harmoniq-back.onrender.com/';
 
   return (
     <section className={css.creatorsSection}>

@@ -14,7 +14,7 @@ const CreatorsPage = () => {
     dispatch(fetchCreators());
   }, [dispatch]);
 
-  const BASE_URL = 'http://localhost:5000/';
+  const BASE_URL = 'https://harmoniq-back.onrender.com/';
   const defaultAvatar = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
 
   return (

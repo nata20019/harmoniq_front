@@ -6,12 +6,14 @@ import Creators from '../../components/Creators/Creators.jsx';
 import PopularArticles from '../../components/PopularArticles/PopularArticles.jsx';
 
 const HomePage = () => {
-  const [articles, setArticles] = useState([]);
+
+const BASE_URL = 'https://harmoniq-back.onrender.com/';
+const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/articles');
+        const response = await axios.get(`${BASE_URL}/api/articles`);
         console.log('Fetched articles:', response.data);
         setArticles(response.data.data.articles || response.data.data); // Враховуємо можливість, що data може бути undefined
       } catch (error) {

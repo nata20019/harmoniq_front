@@ -4,6 +4,8 @@ import css from './ArticleCard.module.css';
 const ArticleCard = ({ article }) => {
   if (!article) return null; // Захист від помилок
 
+  const BASE_URL = 'https://harmoniq-back.onrender.com/';
+  
   const { title, description, image, category, owner } = article;
   // 1. Дефолтний аватар (можна взяти будь-яке посилання або локальний файл)
   const DEFAULT_AVATAR =
@@ -11,7 +13,7 @@ const ArticleCard = ({ article }) => {
 
   const imageUrl = image?.startsWith('http')
     ? image
-    : `http://localhost:5000/${image?.replace(/\\/g, '/')}`;
+    : `${BASE_URL}/${image?.replace(/\\/g, '/')}`;
 
   // 3. Безпечне формування аватара
   let avatarUrl = DEFAULT_AVATAR; // Спочатку ставимо дефолт
@@ -19,7 +21,7 @@ const ArticleCard = ({ article }) => {
   if (owner?.avatarURL) {
     avatarUrl = owner.avatarURL.startsWith('http')
       ? owner.avatarURL
-      : `http://localhost:5000/${owner.avatarURL.replace(/\\/g, '/')}`;
+      : `${BASE_URL}/${owner.avatarURL.replace(/\\/g, '/')}`;
   }
 // console.log("Дані власника статті:", owner);
   return (

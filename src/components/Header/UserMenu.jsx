@@ -4,7 +4,7 @@ import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors.js';
 import css from './UserMenu.module.css';
 import { NavLink } from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:5000/';
+const BASE_URL = 'https://harmoniq-back.onrender.com/';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();

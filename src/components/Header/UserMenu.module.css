@@ -1,51 +1,77 @@
+/* =========================================
+   USER MENU (MOBILE FIRST)
+   ========================================= */
+
+/* 1. Базові стилі для мобільних пристроїв (за замовчуванням) */
 .userWrapper {
   display: flex;
   align-items: center;
-  gap: 24px; /* Відступ між навігацією, кнопкою та профілем */
+  justify-content: center;
+  flex-wrap: wrap; /* Дозволяє елементам переноситися на вузьких екранах */
+  gap: 15px;       /* Менший відступ для телефонів */
+  padding: 10px 0;
 }
 
-.nav {
-  display: flex;
-  gap: 16px;
-  align-items: center;
+/* 2. Стилі для планшетів та десктопів (від 768px і більше) */
+@media screen and (min-width: 768px) {
+  .userWrapper {
+    flex-wrap: nowrap; /* Забороняємо перенесення, все в один рядок */
+    justify-content: flex-start;
+    gap: 25px;         /* Повертаємо великий відступ */
+    padding: 10px 20px;
+  }
 }
 
-.nav a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-/* Кнопка "Create an article" */
+/* --- Кнопка "Create an article" --- */
 .createBtn {
-  background-color: #649179; /* Зелений колір з макету */
+  background-color: var(--green, #649179); /* Використовуйте свої змінні, якщо є */
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 30px; /* Овальна форма */
+  border-radius: 30px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  
+  /* Мобільний розмір кнопки (за замовчуванням) */
+  padding: 8px 16px; 
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .createBtn {
+    /* Десктопний розмір кнопки */
+    padding: 10px 20px; 
+    font-size: 16px;
+  }
 }
 
 .createBtn:hover {
-  background-color: #4a6d5a;
+  background-color: var(--green-darker, #4a6d5a);
 }
 
-/* Блок профілю (Аватар + Ім'я) */
+/* --- Блок профілю (Аватар + Ім'я) --- */
 .profileInfo {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-left: 20px;
-  border-left: 1px solid #ccc; /* Розділювач як у макеті */
+  
+  /* На мобільному без лінії-розділювача і лівого відступу */
+  padding-left: 0;
+  border-left: none;
+}
+
+@media screen and (min-width: 768px) {
+  .profileInfo {
+    /* Повертаємо лінію-розділювач на великих екранах */
+    padding-left: 20px;
+    border-left: 1px solid #ccc; 
+  }
 }
 
 .avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Круглий аватар */
+  border-radius: 50%;
   object-fit: cover;
   background-color: #ddd;
 }
@@ -55,6 +81,7 @@
   font-size: 14px;
 }
 
+/* --- Кнопка виходу --- */
 .logoutBtn {
   background: none;
   border: none;
@@ -62,11 +89,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #649179; /* Твій основний зелений */
+  color: var(--green, #649179);
   padding: 5px;
   transition: color 0.3s ease;
 }
 
 .logoutBtn:hover {
-  color: #4a6d5a; /* Трохи темніший при наведенні */
+  color: var(--green-darker, #4a6d5a);
 }
