@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/harmoniq_front/static/css/main.bc05dd45.css",
-    "main.js": "/harmoniq_front/static/js/main.0f6e6eac.js",
+    "main.js": "/harmoniq_front/static/js/main.00b5f1ef.js",
     "static/media/people.jpg": "/harmoniq_front/static/media/people.daf62d707afc8d74a348.jpg",
     "static/media/hero-bg.jpg": "/harmoniq_front/static/media/hero-bg.81fa4260fcfcdf398587.jpg",
     "static/media/meditation.jpg": "/harmoniq_front/static/media/meditation.14645f6bf42c2c21e7eb.jpg",
     "static/media/lotus.jpg": "/harmoniq_front/static/media/lotus.e5277c7ecef19c6e77b6.jpg",
     "index.html": "/harmoniq_front/index.html",
     "main.bc05dd45.css.map": "/harmoniq_front/static/css/main.bc05dd45.css.map",
-    "main.0f6e6eac.js.map": "/harmoniq_front/static/js/main.0f6e6eac.js.map"
+    "main.00b5f1ef.js.map": "/harmoniq_front/static/js/main.00b5f1ef.js.map"
   },
   "entrypoints": [
     "static/css/main.bc05dd45.css",
-    "static/js/main.0f6e6eac.js"
+    "static/js/main.00b5f1ef.js"
   ]
 }
