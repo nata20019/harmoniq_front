@@ -16,7 +16,7 @@ export async function getArticles() {
 }
 
 export const getCreators = async () => {
-  const { data } = await apiClient.get('/users');
+  const { data } = await apiClient.get('/creators');
 
   return data;
 };
