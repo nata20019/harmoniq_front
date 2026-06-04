@@ -38,7 +38,7 @@
 
 import React, { useEffect, useState } from 'react';
 // Імпортуємо функцію з нашого налаштованого api.js
-import { getArticles } from '../../api.js'; // перевір, чи правильний шлях до файлу api.js!
+import { getArticles } from '../../lib/api/api.js'; // перевір, чи правильний шлях до файлу api.js!
 
 import Hero from '../../components/Hero/Hero.jsx';
 import AboutUs from '../../components/AboutUs/AboutUs.jsx';
