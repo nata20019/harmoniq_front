@@ -1,21 +1,62 @@
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import Hero from '../../components/Hero/Hero.jsx';
+// import AboutUs from '../../components/AboutUs/AboutUs.jsx';
+// import Creators from '../../components/Creators/Creators.jsx';
+// import PopularArticles from '../../components/PopularArticles/PopularArticles.jsx';
+
+// const HomePage = () => {
+
+// const BASE_URL = 'https://harmoniq-back.onrender.com';
+// const [articles, setArticles] = useState([]);
+
+//   useEffect(() => {
+//     const fetchArticles = async () => {
+//       try {
+//         const response = await axios.get(`${BASE_URL}/api/articles`);
+//         console.log('Fetched articles:', response.data);
+//         setArticles(response.data.data.articles || response.data.data); // Враховуємо можливість, що data може бути undefined
+//       } catch (error) {
+//         console.error('Error fetching articles:', error);
+//       }
+//     };
+
+//     fetchArticles();
+//   }, []);
+
+//   return (
+//     <>
+//       <Hero />
+//       <AboutUs />
+//       <PopularArticles articles={articles} />
+//       <Creators />
+//     </>
+//   );
+// };
+
+// export default HomePage;
+
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// Імпортуємо функцію з нашого налаштованого api.js
+import { getArticles } from '../../api.js'; // перевір, чи правильний шлях до файлу api.js!
+
 import Hero from '../../components/Hero/Hero.jsx';
 import AboutUs from '../../components/AboutUs/AboutUs.jsx';
 import Creators from '../../components/Creators/Creators.jsx';
 import PopularArticles from '../../components/PopularArticles/PopularArticles.jsx';
 
 const HomePage = () => {
-
-const BASE_URL = 'https://harmoniq-back.onrender.com';
-const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/articles`);
-        console.log('Fetched articles:', response.data);
-        setArticles(response.data.data.articles || response.data.data); // Враховуємо можливість, що data може бути undefined
+        // Просто викликаємо функцію! Вся магія з URL та axios вже схована в ній.
+        const responseData = await getArticles();
+        console.log('Fetched articles:', responseData);
+        
+        // Враховуємо структуру відповіді бекенду
+        setArticles(responseData.data?.articles || responseData.data || []); 
       } catch (error) {
         console.error('Error fetching articles:', error);
       }
