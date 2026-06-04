@@ -7,7 +7,7 @@ import PopularArticles from '../../components/PopularArticles/PopularArticles.js
 
 const HomePage = () => {
 
-const BASE_URL = 'https://harmoniq-back.onrender.com/';
+const BASE_URL = 'https://harmoniq-back.onrender.com';
 const [articles, setArticles] = useState([]);
 
   useEffect(() => {
